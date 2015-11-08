@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Imggregator" lan="" version="1.0" date="2015-11-08" compatibility="2.0" installRequired="true" >
+	<author name="Patrick Weaver" url="http://trickmod.com" />
+	<summary lan="">Image Aggregator</summary>
+	<description lan="">An image gallery for your third-party images. Instagram, Flickr, Imgur, etc.</description>
+	<keywords>
+		<word>image</word>
+		<word>gallery</word>
+		<word>aggregator</word>
+	</keywords>
+	<category>content</category>
+	<copyright>2015</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="" iconSmall="" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='imagesToDisplay'>10</pref>
+		<pref name='thumbSize'>100x100</pref>
+	</pluginPrefs>
+</e107Plugin>
