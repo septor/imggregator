@@ -25,8 +25,8 @@ class imggregator_adminArea extends e_admin_dispatcher
 	);	
 	
 	protected $adminMenu = array(
-		'main/list'			=> array('caption'=> LAN_MANAGE, 'perm' => 'P'),
-		//'main/create'		=> array('caption'=> LAN_CREATE, 'perm' => 'P'),
+		'main/list'			=> array('caption'=> 'Manage Hooks', 'perm' => 'P'),
+		'main/create'		=> array('caption'=> 'Create New Hook', 'perm' => 'P'),
 		'main/prefs' 		=> array('caption'=> LAN_PREFS, 'perm' => 'P'),	
 		//'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
@@ -79,7 +79,7 @@ class hooks_ui extends e_admin_ui
 		  	),
 			'hook_name' => array (
 				'title' => 'Hook Name',
-				'type' => 'text',
+				'type' => 'dropdown',
 				'data' => 'str',
 				'width' => 'auto',
 				'inline' => true,
@@ -91,11 +91,11 @@ class hooks_ui extends e_admin_ui
 		   	),
 			'hook_tokens' => array (
 			   	'title' => 'Hook Tokens',
-				'type' => 'text',
+				'type' => 'textarea',
 				'data' => 'str',
 				'width' => 'auto',
 				'inline' => true,
-				'help' => '',
+				'help' => 'More information on what each Hook requires can be found on the Wiki!',
 				'readParms' => '',
 				'writeParms' => '',
 				'class' => 'left',
@@ -118,24 +118,27 @@ class hooks_ui extends e_admin_ui
 	//	protected $preftabs        = array('General', 'Other' );
 		protected $prefs = array(
 			'imagesToDisplay' => array(
-				'title' => 'ImagesToDisplay',
+				'title' => 'Images To Display',
 				'tab' => 0,
 				'type' => 'number',
 				'data' => 'str',
-				'help' => 'Help Text goes here'
+				'help' => 'The number of images you want displayed.'
 			),
 			'imageSize'	=> array(
-				'title' => 'ImageSize',
+				'title' => 'Image Size',
 				'tab' => 0,
 				'type' => 'text',
 				'data' => 'str',
-				'help' => 'Help Text goes here'
+				'help' => 'The size, in HEIGHTxWIDTH, you want your images to be.'
 			),
 		); 
 
 		public function init()
 		{
-			// Set drop-down values (if any). 
+			$this->hooks = array(
+				'instagram' => 'Instagram',
+			);
+			$this->fields['hook_name']['writeParms'] = $this->hooks;
 		}
 		
 		// ------- Customize Create --------
