@@ -17,7 +17,7 @@ Still following? No? It's fine, let's go over what it will do:
 
 Well, not right now. There's other gallery plugins for e107 (there's one included with e107!) and I have no interest in mimicing their functionality right now. Maybe in the future when I've exhausted all other third-party options that interest me (or you!).
 
-**But, e107 has the media manager that could be considered a third-party image hosting service!!!*
+**But, e107 has the media manager that could be considered a third-party image hosting service!!!**
 
 Yeah, I guess. But the answer is still "not right now."! Take a look at the gallery plugin included in e107, it does a fantastic job of pulling images from the media manager. I mean, you could use both.
 
