@@ -15,6 +15,6 @@
 	</adminLinks>
 	<pluginPrefs>
 		<pref name='imagesToDisplay'>10</pref>
-		<pref name='thumbSize'>100x100</pref>
+		<pref name='thumbSize'>300x200</pref>
 	</pluginPrefs>
 </e107Plugin>

@@ -129,7 +129,7 @@ class hooks_ui extends e_admin_ui
 				'tab' => 0,
 				'type' => 'text',
 				'data' => 'str',
-				'help' => 'The size, in HEIGHTxWIDTH, you want your images to be.'
+				'help' => 'The size, in WIDTHxHEIGHT, you want your images to be.'
 			),
 		); 
 

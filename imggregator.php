@@ -15,7 +15,7 @@ $sql = e107::getDb();
 $tp = e107::getParser();
 $sc = e107::getScBatch('imggregator', true);
 $template = e107::getTemplate('imggregator');
-//$template = array_change_key_case($template);
+$template = array_change_key_case($template);
 
 $count = (isset($_GET['count']) ? $_GET['count'] : $pref['imagesToDisplay']);
 
@@ -47,25 +47,20 @@ foreach($galleryArray as $id => $gallery)
 	}
 }
 
-$text = '.';
 // Now that we have all the data, let's start building the page with the templates.
-
-//if($images)
-//{
-//k	$sc->setVars(array($title));
-	$text .= $tp->parseTemplate($template['imggregator']['start'], false, $sc);
+if($images)
+{
+	$sc->setVars(array($title));
+	$text .= $tp->parseTemplate($template['page']['start'], false, $sc);
 	
-	//foreach($images as $image)
-	//{
-	//	$sc->setVars(array(
-	//		'url' => $image,
-//			'size' => $pref['imageSize'];
-	//	));
-		$text .= $tp->parseTemplate($template['imggregator']['image'], false, $sc);
-	//}
+	foreach($images as $image)
+	{
+		$sc->setVars(array($image, $pref['imageSize']));
+		$text .= $tp->parseTemplate($template['page']['image'], false, $sc);
+	}
 
-	$text .= $tp->parseTemplate($template['imggregator']['end'], false, $sc);
-//}	
+	$text .= $tp->parseTemplate($template['page']['end'], false, $sc);
+}	
 
 
 e107::getRender()->tablerender('Imggregator Gallery', $text);
