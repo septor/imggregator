@@ -41,3 +41,10 @@ These hooks:
 
 * [Instagram](https://github.com/septor/imggregator/wiki/Instagram+Hook)
 * [Flickr](https://github.com/septor/imggregator/wiki/Flickr+Hook)
+
+
+# IMPORTANT NOTICE
+
+Although I don't think it relates to the _Cookie Law_, you should take note that sites using this plugin will be potentially caching images from third-party websites into your browser (it's almost as dirty as it sounds). If you are **not** fine with this, you need to contact them and plea your case.
+
+Finally, **I, Patrick Weaver, am not responsible for the content that could potentially be presented to you. If you have an issue, take it up with the person running the website that my plugin is used on, not me.** If you come to me I will laugh at and ignore your complaint. Period.
