@@ -17,6 +17,8 @@ $sc = e107::getScBatch('imggregator', true);
 $template = e107::getTemplate('imggregator');
 
 $count = (isset($_GET['count']) ? $_GET['count'] : $pref['imagesToDisplay']);
+$fetch = (isset($pref['imagesToFetch']) ? $pref['imagesToFetch'] : 10);
+
 $imageDir = e_PLUGIN.'imggregator/images/';
 
 $galleries = array(
@@ -28,7 +30,7 @@ if(time() < (filemtime($imageDir.'.') + $cacheTime))
 {
 	foreach($galleries as $gallery)
 	{
-		getHookImages($gallery, $count);
+		getHookImages($gallery, $fetch);
 	}
 }
 
@@ -39,13 +41,18 @@ if($images)
 {
 	$text .= $tp->parseTemplate($template['page']['start'], false, $sc);
 
+	$i = 0;
 	foreach($images as $image)
 	{
-		$sc->setVars(array(
-			'url' => $image,
-			'size' => $pref['thumbSize']
-		));
-		$text .= $tp->parseTemplate($template['page']['image'], false, $sc);
+		if($i < $count)
+		{	
+			$sc->setVars(array(
+				'url' => $image,
+				'size' => $pref['thumbSize']
+			));
+			$text .= $tp->parseTemplate($template['page']['image'], false, $sc);
+		}
+		$i++;
 	}
 
 	$text .= $tp->parseTemplate($template['page']['end'], false, $sc);
