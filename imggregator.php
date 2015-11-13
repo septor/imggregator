@@ -36,6 +36,8 @@ if(time() < (filemtime($imageDir.'.') + $cacheTime))
 
 $images = glob(e_PLUGIN.'imggregator/images/*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 
+shuffle($images);
+
 // Now that we have all the data, let's start building the page with the templates.
 if($images)
 {
