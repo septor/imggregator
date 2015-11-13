@@ -33,4 +33,7 @@ Whats? Hooks! They are what third-party services will be referred to. There's mo
 
 ## Which Hooks?
 
-So far, only Instagram is supported. Flickr is next on the list, then we'll see from there.
+These hooks:
+
+* [Instagram](https://github.com/septor/imggregator/wiki/Instagram+Hook)
+* [Flickr](https://github.com/septor/imggregator/wiki/Flickr+Hook)
