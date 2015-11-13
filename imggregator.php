@@ -15,7 +15,6 @@ $sql = e107::getDb();
 $tp = e107::getParser();
 $sc = e107::getScBatch('imggregator', true);
 $template = e107::getTemplate('imggregator');
-$template = array_change_key_case($template);
 
 $count = (isset($_GET['count']) ? $_GET['count'] : $pref['imagesToDisplay']);
 $imageDir = e_PLUGIN.'imggregator/images/';
@@ -24,11 +23,14 @@ $galleries = array(
 	'instagram', 'flickr',
 );
 
-$cacheTime = 3600; // will be a preference in the next commit
-
-if(time() > filemtime($imageDir.'.') + $cacheTime)
+$cacheTime = (isset($pref['cacheTime']) ? $pref['cacheTime'] : 3600);
+if(time() < (filemtime($imageDir.'.') + $cacheTime))
+{
 	foreach($galleries as $gallery)
+	{
 		getHookImages($gallery, $count);
+	}
+}
 
 $images = glob(e_PLUGIN.'imggregator/images/*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 
@@ -41,7 +43,7 @@ if($images)
 	{
 		$sc->setVars(array(
 			'url' => $image,
-			'size' => $pref['imageSize']
+			'size' => $pref['thumbSize']
 		));
 		$text .= $tp->parseTemplate($template['page']['image'], false, $sc);
 	}

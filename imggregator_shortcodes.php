@@ -16,5 +16,23 @@ class imggregator_shortcodes extends e_shortcode
 
 		return '<img style="height:'.$height.'px; width:'.$width.'px;" src="'.$this->var['url'].'" />';
 	}
+
+	function sc_imggregator_source($parm='')
+	{
+		if(strpos($this->var['url'], 'instagram') !== false)
+		{
+			$source = 'Instagram';
+		}
+		else if(strpos($this->var['url'], 'flickr') !== false)
+		{
+			$source = 'Flickr';
+		}
+		else
+		{
+			$source = 'Unknown';
+		}
+
+		return $source;
+	}
 }
 ?>

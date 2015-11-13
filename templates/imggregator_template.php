@@ -9,7 +9,10 @@
 if(!defined('e107_INIT')){ exit; }
 
 $IMGGREGATOR_TEMPLATE['menu'] = '
-	{IMGGREGATOR_IMAGE}
+	<div class="center">
+		{IMGGREGATOR_IMAGE}
+		source: {IMGGREGATOR_SOURCE}
+	</div>
 ';
 
 $IMGGREGATOR_TEMPLATE['page']['start'] = '
@@ -19,6 +22,7 @@ $IMGGREGATOR_TEMPLATE['page']['image'] = '
 	<div class="span2 col-xs-6 col-md-3">
 		<div class="thumbnail">
 			{IMGGREGATOR_IMAGE}
+			source: {IMGGREGATOR_SOURCE}
 		</div>
 	</div>';
 $IMGGREGATOR_TEMPLATE['page']['end'] = '

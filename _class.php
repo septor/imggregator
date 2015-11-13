@@ -16,7 +16,7 @@ function getHookImages($hook, $count)
 	$sql = e107::getDb();
 	$pref = e107::pref('imggregator');
 
-	$count = (isset($count) ? $count : $pref['imagesToDisplay']);
+	$count = (isset($count) ? $count : $pref['imagesToFetch']);
 
 	$tokens = explode(';',$sql->retrieve('hooks', 'hook_tokens', 'hook_name="'.$hook.'"'));
 

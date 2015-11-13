@@ -122,15 +122,30 @@ class hooks_ui extends e_admin_ui
 			'tab' => 0,
 			'type' => 'number',
 			'data' => 'str',
-			'help' => 'The number of images you want displayed.'
+			'help' => 'The number of images you want displayed on the gallery page.'
 		),
-		'imageSize'	=> array(
+		'imagesToFetch' => array(
+			'title' => 'Images To Fetch',
+			'tab' => 0,
+			'type' => 'number',
+			'data' => 'int',
+			'help' => 'The number of images you want fetched from a Hook.'
+		),
+		'thumbSize'	=> array(
 			'title' => 'Image Size',
 			'tab' => 0,
 			'type' => 'text',
 			'data' => 'str',
 			'help' => 'The size, in WIDTHxHEIGHT, you want your images to be.'
 		),
+		'cacheTime'	=> array(
+			'title' => 'Image Cache Time',
+			'tab' => 0,
+			'type' => 'number',
+			'data' => 'str',
+			'help' => 'The time, in seconds, you want to pass before images are refreshed.'
+		),
+
 	);
 
 	public function init()

@@ -18,7 +18,7 @@ $images = glob(e_PLUGIN.'imggregator/images/*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 
 $sc->setVars(array(
 	'url' => $images[array_rand($images)],
-	'size' => $pref['imageSize']
+	'size' => $pref['thumbSize']
 ));
 $text = $tp->parseTemplate($template['menu'], false, $sc);
 
