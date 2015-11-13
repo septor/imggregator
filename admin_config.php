@@ -12,6 +12,7 @@ if (!getperms('P'))
 	header('location:'.e_BASE.'index.php');
 	exit;
 }
+e107::lan('imggregator', 'admin', true);
 
 class imggregator_adminArea extends e_admin_dispatcher
 {
@@ -25,8 +26,8 @@ class imggregator_adminArea extends e_admin_dispatcher
 	);
 
 	protected $adminMenu = array(
-		'main/list'			=> array('caption'=> 'Manage Hooks', 'perm' => 'P'),
-		'main/create'		=> array('caption'=> 'Create New Hook', 'perm' => 'P'),
+		'main/list'			=> array('caption'=> LAN_IMGGREGATOR_MANAGE_HOOKS, 'perm' => 'P'),
+		'main/create'		=> array('caption'=> LAN_IMGGREGATOR_CREATE_HOOK, 'perm' => 'P'),
 		'main/prefs' 		=> array('caption'=> LAN_PREFS, 'perm' => 'P'),
 		//'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
@@ -78,7 +79,7 @@ class hooks_ui extends e_admin_ui
 			'thclass' => 'left',
 		),
 		'hook_name' => array (
-			'title' => 'Hook Name',
+			'title' => LAN_IMGGREGATOR_SQL_01,
 			'type' => 'dropdown',
 			'data' => 'str',
 			'width' => 'auto',
@@ -90,12 +91,12 @@ class hooks_ui extends e_admin_ui
 			'thclass' => 'left',
 		),
 		'hook_tokens' => array (
-			'title' => 'Hook Tokens',
+			'title' => LAN_IMGGREGATOR_SQL_02,
 			'type' => 'textarea',
 			'data' => 'str',
 			'width' => 'auto',
 			'inline' => true,
-			'help' => 'More information on what each Hook requires can be found on the Wiki!',
+			'help' => LAN_IMGGREGATOR_SQL_03,
 			'readParms' => '',
 			'writeParms' => '',
 			'class' => 'left',
@@ -118,32 +119,32 @@ class hooks_ui extends e_admin_ui
 	//	protected $preftabs        = array('General', 'Other' );
 	protected $prefs = array(
 		'imagesToDisplay' => array(
-			'title' => 'Images To Display',
+			'title' => LAN_IMGGREGATOR_PREFS_01_A,
 			'tab' => 0,
 			'type' => 'number',
 			'data' => 'str',
-			'help' => 'The number of images you want displayed on the gallery page.'
+			'help' => LAN_IMGGREGATOR_PREFS_01_B
 		),
 		'imagesToFetch' => array(
-			'title' => 'Images To Fetch',
+			'title' => LAN_IMGGREGATOR_PREFS_02_A,
 			'tab' => 0,
 			'type' => 'number',
 			'data' => 'int',
-			'help' => 'The number of images you want fetched from a Hook.'
+			'help' => LAN_IMGGREGATOR_PREFS_02_B
 		),
 		'thumbSize'	=> array(
-			'title' => 'Image Size',
+			'title' => LAN_IMGGREGATOR_PREFS_03_A,
 			'tab' => 0,
 			'type' => 'text',
 			'data' => 'str',
-			'help' => 'The size, in WIDTHxHEIGHT, you want your images to be.'
+			'help' => LAN_IMGGREGATOR_PREFS_03_B
 		),
 		'cacheTime'	=> array(
-			'title' => 'Image Cache Time',
+			'title' => LAN_IMGGREGATOR_PREFS_04_A,
 			'tab' => 0,
 			'type' => 'number',
 			'data' => 'str',
-			'help' => 'The time, in seconds, you want to pass before images are refreshed.'
+			'help' => LAN_IMGGREGATOR_PREFS_04_B
 		),
 
 	);

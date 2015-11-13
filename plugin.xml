@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Imggregator" lan="" version="1.0" date="2015-11-08" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Imggregator" lan="LAN_IMGGREGATOR_NAME" version="1.0.0" date="2015-11-08" compatibility="2.0" installRequired="true" >
 	<author name="Patrick Weaver" url="http://trickmod.com" />
-	<summary lan="">Image Aggregator</summary>
-	<description lan="">An image gallery for your third-party images. Instagram, Flickr, Imgur, etc.</description>
+	<summary lan="LAN_IMGGREGATOR_SUMM">Image Aggregator</summary>
+	<description lan="LAN_IMGGREGATOR_DESC">An image gallery for your third-party images. Instagram, Flickr, etc.</description>
 	<keywords>
 		<word>image</word>
 		<word>gallery</word>
 		<word>aggregator</word>
+		<word>instagram</word>
+		<word>flickr</word>
 	</keywords>
 	<category>content</category>
 	<copyright>2015</copyright>
@@ -15,6 +17,8 @@
 	</adminLinks>
 	<pluginPrefs>
 		<pref name='imagesToDisplay'>10</pref>
+		<pref name='imagesToFetch'>10</pref>
 		<pref name='thumbSize'>300x200</pref>
+		<pref name='cacheTime'>3600</pref>
 	</pluginPrefs>
 </e107Plugin>
