@@ -14,11 +14,7 @@ $tp = e107::getParser();
 $sc = e107::getScBatch('imggregator', true);
 $template = e107::getTemplate('imggregator');
 
-$galleries = array(
-	'instagram'
-);
-
-$images = getHookImages($galleries[array_rand($galleries)], $pref['imagesToDisplay']);
+$images = glob(e_PLUGIN.'imggregator/images/*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 
 $sc->setVars(array(
 	'url' => $images[array_rand($images)],

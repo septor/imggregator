@@ -18,22 +18,19 @@ $template = e107::getTemplate('imggregator');
 $template = array_change_key_case($template);
 
 $count = (isset($_GET['count']) ? $_GET['count'] : $pref['imagesToDisplay']);
+$imageDir = e_PLUGIN.'imggregator/images/';
 
-$galleryArray = array(
-	'instagram' => 'Instagram',
-	'flickr' => 'Flickr',
+$galleries = array(
+	'instagram', 'flickr',
 );
 
-$images = array();
+$cacheTime = 3600; // will be a preference in the next commit
 
-foreach($galleryArray as $id => $gallery)
-{
-	$imagesArray = getHookImages($id, $count);
-	foreach($imagesArray as $singleImage)
-	{
-		array_push($images, $singleImage);
-	}
-}
+if(time() > filemtime($imageDir.'.') + $cacheTime)
+	foreach($galleries as $gallery)
+		getHookImages($gallery, $count);
+
+$images = glob(e_PLUGIN.'imggregator/images/*.{jpg,jpeg,gif,png}', GLOB_BRACE);
 
 // Now that we have all the data, let's start building the page with the templates.
 if($images)

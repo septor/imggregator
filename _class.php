@@ -27,9 +27,12 @@ function getHookImages($hook, $count)
 		$url = fetchData('https://api.instagram.com/v1/users/'.$user_id[1].'/media/recent/?access_token='.$access_token[1].'&count='.$count);
 		$result = json_decode($url);
 
+		$i = 0;
 		foreach($result->data as $image)
 		{
-			$images[] = $image->images->standard_resolution->url;
+			copy($image->images->standard_resolution->url, 'images/instagram'.$i.'.jpg');
+			$i++;
+			//$images[] = $image->images->standard_resolution->url;
 		}
 	}
 	else if($hook == 'flickr')
@@ -39,11 +42,14 @@ function getHookImages($hook, $count)
 
 		$xml = simplexml_load_file('https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key='.$api_key[1].'&user_id='.urlencode($user_id[1]).'&format=rest');
 		
+		$i = 0;
 		foreach($xml->photos->photo as $photo)
 		{
 			if($photo['ispublic'] == 1)
 			{
-				$images[] .= 'https://farm'.$photo['farm'].'.staticflickr.com/'.$photo['server'].'/'.$photo['id'].'_'.$photo['secret'].'.jpg';
+				copy('https://farm'.$photo['farm'].'.staticflickr.com/'.$photo['server'].'/'.$photo['id'].'_'.$photo['secret'].'.jpg', 'images/flickr'.$i.'.jpg');
+				$i++;
+				//$images[] .= 'https://farm'.$photo['farm'].'.staticflickr.com/'.$photo['server'].'/'.$photo['id'].'_'.$photo['secret'].'.jpg';
 			}
 		}
 	}

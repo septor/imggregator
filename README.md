@@ -21,6 +21,10 @@ Well, not right now. There's other gallery plugins for e107 (there's one include
 
 Yeah, I guess. But the answer is still "not right now."! Take a look at the gallery plugin included in e107, it does a fantastic job of pulling images from the media manager. I mean, you could use both.
 
+## The most important step..
+
+.. is to **make sure** you CHMOD the `images/` directory to be writable (777) so that your images can be cached!
+
 ## Translations
 
 Not right now. Multilingual support will come, but not until more of the plugin is completed. Stick around!
