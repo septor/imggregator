@@ -137,6 +137,7 @@ class hooks_ui extends e_admin_ui
 	{
 		$this->hooks = array(
 			'instagram' => 'Instagram',
+			'flickr' => 'Flickr',
 		);
 		$this->fields['hook_name']['writeParms'] = $this->hooks;
 	}

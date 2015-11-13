@@ -31,9 +31,24 @@ function getHookImages($hook, $count)
 		{
 			$images[] = $image->images->standard_resolution->url;
 		}
-
-		return $images;
 	}
+	else if($hook == 'flickr')
+	{
+		$user_id = explode(':', $tokens[0]);
+		$api_key = explode(':', $tokens[1]);
+
+		$xml = simplexml_load_file('https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key='.$api_key[1].'&user_id='.urlencode($user_id[1]).'&format=rest');
+		
+		foreach($xml->photos->photo as $photo)
+		{
+			if($photo['ispublic'] == 1)
+			{
+				$images[] .= 'https://farm'.$photo['farm'].'.staticflickr.com/'.$photo['server'].'/'.$photo['id'].'_'.$photo['secret'].'.jpg';
+			}
+		}
+	}
+
+	return $images;
 }
 
 ?>

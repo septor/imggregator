@@ -21,11 +21,18 @@ $count = (isset($_GET['count']) ? $_GET['count'] : $pref['imagesToDisplay']);
 
 $galleryArray = array(
 	'instagram' => 'Instagram',
+	'flickr' => 'Flickr',
 );
+
+$images = array();
 
 foreach($galleryArray as $id => $gallery)
 {
-	$images = getHookImages($id, $count);
+	$imagesArray = getHookImages($id, $count);
+	foreach($imagesArray as $singleImage)
+	{
+		array_push($images, $singleImage);
+	}
 }
 
 // Now that we have all the data, let's start building the page with the templates.
